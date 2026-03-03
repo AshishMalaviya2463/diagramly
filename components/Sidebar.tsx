@@ -1,15 +1,23 @@
 export default function Sidebar() {
   return (
-    <div className="w-60 bg-gray-800 text-white p-4 flex flex-col">
-      <h1 className="text-xl font-bold mb-6">Diagramly</h1>
+    <div className="w-64 bg-gray-950/80 backdrop-blur-xl border-r border-gray-800 p-6 flex flex-col justify-between">
+      <div>
+        <h1 className="text-2xl font-bold text-white tracking-tight mb-10">
+          Diagramly
+        </h1>
 
-      <button className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg mb-3">
-        New Diagram
-      </button>
+        <div className="space-y-3">
+          <button className="w-full bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-xl shadow-lg">
+            + New Diagram
+          </button>
 
-      <button className="bg-gray-700 hover:bg-gray-600 p-2 rounded-lg">
-        Saved Diagrams
-      </button>
+          <button className="w-full bg-gray-800 hover:bg-gray-700 transition px-4 py-2 rounded-xl">
+            Saved Diagrams
+          </button>
+        </div>
+      </div>
+
+      <div className="text-xs text-gray-500">v0.1 – Built with ReactFlow</div>
     </div>
   );
 }
