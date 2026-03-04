@@ -5,38 +5,34 @@ import ReactFlow, {
   Background,
   Controls,
   addEdge,
-  useNodesState,
-  useEdgesState,
   Connection,
   Edge,
+  Node,
+  OnNodesChange,
+  OnEdgesChange,
 } from "reactflow";
+
 import DefaultNode from "@/components/nodes/DefaultNode";
 
 const nodeTypes = {
   custom: DefaultNode,
 };
 
-const initialNodes = [
-  {
-    id: "1",
-    position: { x: 100, y: 100 },
-    data: { label: "Node 1" },
-    type: "custom",
-  },
-  {
-    id: "2",
-    position: { x: 400, y: 200 },
-    data: { label: "Node 2" },
-    type: "custom",
-  },
-];
+interface FlowCanvasProps {
+  nodes: Node[];
+  edges: Edge[];
+  onNodesChange: OnNodesChange;
+  onEdgesChange: OnEdgesChange;
+  setEdges: React.Dispatch<React.SetStateAction<Edge[]>>;
+}
 
-const initialEdges: Edge[] = [];
-
-export default function FlowCanvas() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
+export default function FlowCanvas({
+  nodes,
+  edges,
+  onNodesChange,
+  onEdgesChange,
+  setEdges,
+}: FlowCanvasProps) {
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],

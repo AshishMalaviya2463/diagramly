@@ -1,4 +1,8 @@
-export default function Sidebar() {
+interface SidebarProps {
+  onAddNode: () => void;
+}
+
+export default function Sidebar({ onAddNode }: SidebarProps) {
   return (
     <div className="w-64 bg-gray-950/80 backdrop-blur-xl border-r border-gray-800 p-6 flex flex-col justify-between">
       <div>
@@ -7,8 +11,11 @@ export default function Sidebar() {
         </h1>
 
         <div className="space-y-3">
-          <button className="w-full bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-xl shadow-lg">
-            + New Diagram
+          <button
+            onClick={onAddNode}
+            className="w-full bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-xl shadow-lg"
+          >
+            + Add Node
           </button>
 
           <button className="w-full bg-gray-800 hover:bg-gray-700 transition px-4 py-2 rounded-xl">
