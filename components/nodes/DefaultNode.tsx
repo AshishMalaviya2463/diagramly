@@ -27,8 +27,12 @@ export default function DefaultNode({ id, data, selected }: any) {
     <div
       onDoubleClick={() => setIsEditing(true)}
       className={`bg-gray-900 rounded-xl px-4 py-2 shadow-md text-white min-w-[120px] border transition-all
-      ${selected ? "border-blue-500 shadow-blue-500/30 shadow-lg" : "border-gray-700"}
-    `}
+        ${
+          selected
+            ? "border-blue-500 ring-2 ring-blue-500/40 shadow-blue-500/30 shadow-lg"
+            : "border-gray-700"
+        }
+      `}
     >
       <Handle type="target" position={Position.Top} className="bg-blue-500" />
 

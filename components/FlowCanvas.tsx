@@ -48,6 +48,9 @@ export default function FlowCanvas({
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         deleteKeyCode={["Backspace", "Delete"]}
+        multiSelectionKeyCode={["Shift"]}
+        selectionOnDrag={true}
+        panOnDrag={[2]}
         fitView
       >
         <Controls />
