@@ -47,6 +47,7 @@ export default function FlowCanvas({
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        deleteKeyCode={["Backspace", "Delete"]}
         fitView
       >
         <Controls />
