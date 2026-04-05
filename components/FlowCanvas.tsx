@@ -10,6 +10,7 @@ import ReactFlow, {
   Node,
   OnNodesChange,
   OnEdgesChange,
+  ReactFlowInstance,
 } from "reactflow";
 
 import DefaultNode from "@/components/nodes/DefaultNode";
@@ -24,6 +25,7 @@ interface FlowCanvasProps {
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
   setEdges: React.Dispatch<React.SetStateAction<Edge[]>>;
+  onInitInstance: (instance: ReactFlowInstance) => void;
 }
 
 export default function FlowCanvas({
@@ -32,6 +34,7 @@ export default function FlowCanvas({
   onNodesChange,
   onEdgesChange,
   setEdges,
+  onInitInstance,
 }: FlowCanvasProps) {
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
@@ -47,9 +50,10 @@ export default function FlowCanvas({
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onInit={onInitInstance}
         deleteKeyCode={["Backspace", "Delete"]}
         multiSelectionKeyCode={["Shift"]}
-        selectionOnDrag={true}
+        selectionOnDrag
         panOnDrag={[2]}
         fitView
       >
